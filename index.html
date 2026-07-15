@@ -306,12 +306,12 @@
   }
   .week{
     display:grid;
-    grid-template-columns:repeat(5, 1fr);
+    grid-template-columns:repeat(3, 1fr);
     gap:1rem;
     margin-top:1rem;
   }
   @media (max-width:760px){
-    .week{grid-template-columns:1fr 1fr;}
+    .week{grid-template-columns:1fr;}
   }
   .day-card{
     background:var(--cream);
@@ -407,7 +407,7 @@
 <body>
 
 <nav>
-  <div class="nav-logo">Stille Handen</div>
+  <div class="nav-logo"><img src="logo.png" alt="Babet" style="height:44px;width:auto;display:block;"></div>
   <button class="nav-toggle" id="navToggle" aria-label="Menu openen">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#over-mij">Over mij</a></li>
@@ -427,7 +427,7 @@
     </svg>
     <p class="lead">Al twintig jaar begeleid ik mensen met massage, reiki, acupressuur en triggerpointtherapie — rustig, aandachtig lichaamswerk, afgestemd op wat jij nodig hebt.</p>
     <div class="hero-ctas">
-      <a href="#agenda" class="btn btn-primary">Bekijk de agenda</a>
+      <a href="https://cal.com/babet-van-wittmarschen-t4yfao" target="_blank" rel="noopener" class="btn btn-primary">Bekijk de agenda</a>
       <a href="#contact" class="btn btn-secondary">Neem contact op</a>
     </div>
   </div>
@@ -476,7 +476,7 @@
       <h3>Energetisch werk</h3>
       <ul>
         <li>Reiki</li>
-        <li>Stille Handen (rustige, bewuste aanraking)</li>
+        <li>SilentHands (ontdek je persoonlijke handgebaar)</li>
         <li>Engelenkaarten &amp; tarot</li>
       </ul>
     </div>
@@ -495,42 +495,11 @@
 <section class="agenda" id="agenda">
   <div class="section-head">
     <span class="eyebrow">Agenda</span>
-    <h2>Beschikbare momenten<br>deze week.</h2>
-    <p>Een indicatie van de vaste praktijkuren. Neem contact op om een moment te reserveren — ik bevestig de afspraak persoonlijk.</p>
+    <h2>Boek direct<br>een moment.</h2>
+    <p>Bekijk mijn actuele beschikbaarheid en kies zelf een moment dat jou uitkomt — inclusief een korte intake, zodat ik van tevoren weet wat je nodig hebt.</p>
   </div>
-  <div class="week">
-    <div class="day-card">
-      <h4>Maandag</h4>
-      <div class="slot">09:00 – 10:00</div>
-      <div class="slot taken">11:00 – 12:00</div>
-      <div class="slot">14:00 – 15:00</div>
-    </div>
-    <div class="day-card">
-      <h4>Dinsdag</h4>
-      <div class="slot">10:00 – 11:00</div>
-      <div class="slot">13:00 – 14:00</div>
-      <div class="slot taken">15:30 – 16:30</div>
-    </div>
-    <div class="day-card">
-      <h4>Woensdag</h4>
-      <div class="slot taken">09:00 – 10:00</div>
-      <div class="slot">11:30 – 12:30</div>
-      <div class="slot">16:00 – 17:00</div>
-    </div>
-    <div class="day-card">
-      <h4>Donderdag</h4>
-      <div class="slot">09:30 – 10:30</div>
-      <div class="slot">13:00 – 14:00</div>
-      <div class="slot">18:00 – 19:00</div>
-    </div>
-    <div class="day-card">
-      <h4>Vrijdag</h4>
-      <div class="slot taken">10:00 – 11:00</div>
-      <div class="slot">12:00 – 13:00</div>
-      <div class="slot">15:00 – 16:00</div>
-    </div>
-  </div>
-  <p class="agenda-note">Doorgestreepte tijden zijn bezet. Wil je een ander moment? Vraag er gerust naar via het contactformulier — vaak is er buiten deze uren ook ruimte.</p>
+  <a href="https://cal.com/babet-van-wittmarschen-t4yfao" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-block; font-size:1.02rem; padding:1.1rem 2.4rem;">Bekijk beschikbare tijden &amp; boek</a>
+  <p class="agenda-note">Je komt op een beveiligde boekingspagina van Cal.com terecht, waar je direct een tijd kunt kiezen.</p>
 </section>
 
 <section id="contact">
@@ -585,12 +554,6 @@
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-</script>
-
-</body>
-</html>
-
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 </script>
 
