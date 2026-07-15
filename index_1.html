@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praktijk Stille Handen — Hypnotherapie &amp; Energetisch Werk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender: #9B87A8;
+    --lavender-soft: #C7B9D1;
+    --sage: #8CA089;
+    --blush: #E3C3BE;
+    --plum: #3B2E3F;
+    --bg: #F6F2F0;
+    --bg-warm: #EFE7E9;
+    --cream: #FBF8F6;
+    --line: rgba(59,46,63,0.14);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--plum);
+    font-family:'Karla', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.72rem;
+    color:var(--lavender);
+    font-weight:600;
+  }
+
+  a{color:inherit;}
+
+  img{max-width:100%;display:block;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.4rem clamp(1.5rem, 5vw, 4rem);
+    background:rgba(246,242,240,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-logo{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-style:italic;
+  }
+  .nav-links{
+    display:flex;
+    gap:clamp(1rem,3vw,2.2rem);
+    font-size:0.88rem;
+    list-style:none;
+  }
+  .nav-links a{
+    text-decoration:none;
+    position:relative;
+    padding-bottom:2px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    bottom:0;left:0;
+    width:0;
+    height:1px;
+    background:var(--lavender);
+    transition:width 0.3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--plum);}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:64px;left:0;right:0;
+      flex-direction:column;
+      background:var(--cream);
+      padding:1.5rem 2rem;
+      gap:1.1rem;
+      transform:translateY(-130%);
+      transition:transform 0.35s ease;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Breath line signature ---------- */
+  .breathline{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .breathline path{
+    fill:none;
+    stroke:var(--lavender);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    opacity:0.55;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .breathline path{
+      stroke-dasharray:6 10;
+      animation:drift 7s linear infinite;
+    }
+    @keyframes drift{
+      to{stroke-dashoffset:-160;}
+    }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:8rem clamp(1.5rem,6vw,5rem) 4rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{max-width:760px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    font-weight:400;
+    line-height:1.05;
+    margin:1.2rem 0 1.6rem;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--lavender);
+  }
+  .hero p.lead{
+    font-size:1.15rem;
+    max-width:520px;
+    color:#5b4a5e;
+    margin-bottom:2.4rem;
+  }
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+
+  .btn{
+    display:inline-block;
+    padding:0.9rem 1.8rem;
+    border-radius:999px;
+    font-size:0.92rem;
+    font-weight:600;
+    text-decoration:none;
+    transition:all 0.25s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--lavender);
+    color:var(--cream);
+  }
+  .btn-primary:hover{background:#877296;}
+  .btn-secondary{
+    border-color:var(--plum);
+    color:var(--plum);
+  }
+  .btn-secondary:hover{background:var(--plum);color:var(--cream);}
+
+  .hero-glow{
+    position:absolute;
+    top:-10%;right:-10%;
+    width:520px;height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle, var(--lavender-soft) 0%, transparent 70%);
+    opacity:0.5;
+    filter:blur(10px);
+    z-index:-1;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{
+    padding:6rem clamp(1.5rem,6vw,5rem);
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:3rem;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem,3.4vw,2.6rem);
+    margin-top:0.6rem;
+  }
+  .section-head p{color:#5b4a5e;margin-top:0.9rem;}
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--cream);
+    border-radius:28px;
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:3.5rem;
+    align-items:start;
+  }
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+  .about-portrait{
+    aspect-ratio:4/5;
+    border-radius:24px;
+    background:
+      radial-gradient(circle at 30% 30%, var(--blush) 0%, transparent 60%),
+      linear-gradient(150deg, var(--lavender-soft), var(--sage));
+    position:relative;
+    overflow:hidden;
+  }
+  .about-portrait::after{
+    content:'';
+    position:absolute;inset:0;
+    background:repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 30px, rgba(255,255,255,0.06) 31px);
+  }
+  .about-facts{
+    list-style:none;
+    margin-top:1.8rem;
+    display:grid;
+    gap:0.9rem;
+  }
+  .about-facts li{
+    display:flex;
+    gap:0.8rem;
+    font-size:0.96rem;
+    padding-bottom:0.9rem;
+    border-bottom:1px solid var(--line);
+  }
+  .about-facts strong{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    min-width:120px;
+    color:var(--lavender);
+    flex-shrink:0;
+  }
+
+  /* ---------- Services ---------- */
+  .service-groups{
+    display:grid;
+    gap:2rem;
+    grid-template-columns:repeat(3, 1fr);
+  }
+  @media (max-width:900px){
+    .service-groups{grid-template-columns:1fr;}
+  }
+  .service-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:2.2rem 1.8rem;
+    position:relative;
+  }
+  .service-card .mark{
+    width:38px;height:38px;
+    border-radius:50%;
+    margin-bottom:1.4rem;
+  }
+  .mark-lichaam{background:var(--sage);}
+  .mark-energie{background:var(--lavender);}
+  .mark-geest{background:var(--blush);}
+
+  .service-card h3{
+    font-size:1.25rem;
+    margin-bottom:0.8rem;
+  }
+  .service-card ul{
+    list-style:none;
+    display:grid;
+    gap:0.5rem;
+    color:#5b4a5e;
+    font-size:0.94rem;
+  }
+  .service-card ul li::before{
+    content:'—  ';
+    color:var(--lavender);
+  }
+
+  /* ---------- Agenda ---------- */
+  .agenda{
+    background:linear-gradient(180deg, var(--bg-warm), var(--bg));
+    border-radius:28px;
+  }
+  .week{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1rem;
+    margin-top:1rem;
+  }
+  @media (max-width:760px){
+    .week{grid-template-columns:1fr 1fr;}
+  }
+  .day-card{
+    background:var(--cream);
+    border-radius:18px;
+    padding:1.4rem 1.2rem;
+    border:1px solid var(--line);
+  }
+  .day-card h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.05rem;
+    margin-bottom:0.9rem;
+    color:var(--plum);
+  }
+  .slot{
+    font-size:0.86rem;
+    padding:0.5rem 0.7rem;
+    border-radius:10px;
+    background:var(--bg-warm);
+    margin-bottom:0.5rem;
+    color:#5b4a5e;
+  }
+  .slot.taken{
+    opacity:0.4;
+    text-decoration:line-through;
+  }
+  .agenda-note{
+    margin-top:2rem;
+    font-size:0.92rem;
+    color:#5b4a5e;
+    max-width:560px;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3.5rem;
+  }
+  @media (max-width:820px){
+    .contact{grid-template-columns:1fr;}
+  }
+  .contact-info p{color:#5b4a5e;margin-bottom:1.4rem;}
+  .contact-info .detail{
+    display:flex;
+    gap:0.9rem;
+    align-items:baseline;
+    padding:0.9rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-info .detail strong{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    min-width:90px;
+    color:var(--lavender);
+  }
+  form{
+    display:grid;
+    gap:1rem;
+  }
+  label{
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--lavender);
+    font-weight:600;
+  }
+  input, textarea, select{
+    width:100%;
+    font-family:'Karla', sans-serif;
+    font-size:0.98rem;
+    padding:0.85rem 1rem;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    color:var(--plum);
+    margin-top:0.35rem;
+  }
+  input:focus, textarea:focus, select:focus{
+    outline:2px solid var(--lavender);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical;min-height:110px;}
+
+  footer{
+    text-align:center;
+    padding:3rem 1.5rem 4rem;
+    color:#7a6a7d;
+    font-size:0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Stille Handen</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu openen">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#over-mij">Over mij</a></li>
+    <li><a href="#wat-ik-doe">Wat ik doe</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Massage · Reiki · Lichaamswerk</span>
+    <h1>Ruimte voor lichaam,<br>geest en <em>stilte</em>.</h1>
+    <svg class="breathline" viewBox="0 0 600 40" aria-hidden="true">
+      <path d="M0,20 C60,4 120,36 180,20 C240,4 300,36 360,20 C420,4 480,36 540,20 C560,14 580,20 600,20"/>
+    </svg>
+    <p class="lead">Al twintig jaar begeleid ik mensen met massage, reiki, acupressuur en triggerpointtherapie — rustig, aandachtig lichaamswerk, afgestemd op wat jij nodig hebt.</p>
+    <div class="hero-ctas">
+      <a href="#agenda" class="btn btn-primary">Bekijk de agenda</a>
+      <a href="#contact" class="btn btn-secondary">Neem contact op</a>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="over-mij">
+  <div class="about-grid">
+    <img class="about-portrait" src="babet-foto.jpg" alt="Portretfoto" style="width:100%;height:100%;object-fit:cover;">
+    <div>
+      <span class="eyebrow">Over mij</span>
+      <h2>Twintig jaar werken<br>met lichaam en aandacht.</h2>
+      <p style="color:#5b4a5e; margin-top:1rem; max-width:560px;">
+        Al zo'n twintig jaar werk ik als assistent-chiropractor, en al even lang geef ik massages en werk ik met reiki, acupressuur en triggerpointtherapie. Via de Stille Handen-methode werk ik met rustige, bewuste aanraking als aanvulling op lichaamswerk. Mijn achtergrond ligt in het pedagogisch-psychosociaal werk (HBO).
+      </p>
+      <p style="color:#5b4a5e; margin-top:1rem; max-width:560px;">
+        Voor wie daar behoefte aan heeft, bied ik ook verdiepende, intuïtieve sessies — en dit najaar rond ik een aanvullende opleiding af op het gebied van begeleide ontspanningstechnieken.
+      </p>
+      <ul class="about-facts">
+        <li><strong>Ervaring</strong><span>±20 jaar assistent-chiropractor; ±20 jaar massage, reiki, acupressuur &amp; triggerpointtherapie</span></li>
+        <li><strong>Achtergrond</strong><span>HBO Pedagogisch-Psychosociaal Werker</span></li>
+        <li><strong>Aanvullend</strong><span>Verdiepende, intuïtieve sessies</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wat-ik-doe">
+  <div class="section-head">
+    <span class="eyebrow">Wat ik doe</span>
+    <h2>Drie manieren van werken,<br>één aandachtige benadering.</h2>
+    <p>Ieder mens en ieder moment vraagt om iets anders. Daarom werk ik met lichaam, energie en geest — los of in combinatie, afgestemd op wat jij nodig hebt.</p>
+  </div>
+  <div class="service-groups">
+    <div class="service-card">
+      <div class="mark mark-lichaam"></div>
+      <h3>Lichaamswerk</h3>
+      <ul>
+        <li>Massage</li>
+        <li>Triggerpointtherapie</li>
+        <li>Acupressuur</li>
+        <li>Ondersteuning vanuit chiropractie-ervaring</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="mark mark-energie"></div>
+      <h3>Energetisch werk</h3>
+      <ul>
+        <li>Reiki</li>
+        <li>Stille Handen (rustige, bewuste aanraking)</li>
+        <li>Engelenkaarten &amp; tarot</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="mark mark-geest"></div>
+      <h3>Hypnotherapie</h3>
+      <ul>
+        <li>Hypnotherapie</li>
+        <li>Regressietherapie (vanaf oktober)</li>
+        <li>Werken met onderbewuste patronen</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="agenda" id="agenda">
+  <div class="section-head">
+    <span class="eyebrow">Agenda</span>
+    <h2>Beschikbare momenten<br>deze week.</h2>
+    <p>Een indicatie van de vaste praktijkuren. Neem contact op om een moment te reserveren — ik bevestig de afspraak persoonlijk.</p>
+  </div>
+  <div class="week">
+    <div class="day-card">
+      <h4>Maandag</h4>
+      <div class="slot">09:00 – 10:00</div>
+      <div class="slot taken">11:00 – 12:00</div>
+      <div class="slot">14:00 – 15:00</div>
+    </div>
+    <div class="day-card">
+      <h4>Dinsdag</h4>
+      <div class="slot">10:00 – 11:00</div>
+      <div class="slot">13:00 – 14:00</div>
+      <div class="slot taken">15:30 – 16:30</div>
+    </div>
+    <div class="day-card">
+      <h4>Woensdag</h4>
+      <div class="slot taken">09:00 – 10:00</div>
+      <div class="slot">11:30 – 12:30</div>
+      <div class="slot">16:00 – 17:00</div>
+    </div>
+    <div class="day-card">
+      <h4>Donderdag</h4>
+      <div class="slot">09:30 – 10:30</div>
+      <div class="slot">13:00 – 14:00</div>
+      <div class="slot">18:00 – 19:00</div>
+    </div>
+    <div class="day-card">
+      <h4>Vrijdag</h4>
+      <div class="slot taken">10:00 – 11:00</div>
+      <div class="slot">12:00 – 13:00</div>
+      <div class="slot">15:00 – 16:00</div>
+    </div>
+  </div>
+  <p class="agenda-note">Doorgestreepte tijden zijn bezet. Wil je een ander moment? Vraag er gerust naar via het contactformulier — vaak is er buiten deze uren ook ruimte.</p>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <span class="eyebrow">Contact</span>
+    <h2>Een afspraak aanvragen</h2>
+    <p>Laat weten waar je behoefte aan hebt, dan neem ik persoonlijk contact met je op om een moment af te stemmen.</p>
+  </div>
+  <div class="contact">
+    <div class="contact-info">
+      <p>Je kunt me ook rechtstreeks bereiken. Ik reageer doorgaans binnen één werkdag.</p>
+      <div class="detail"><strong>E-mail</strong><span>babetsalon@gmail.com</span></div>
+      <div class="detail"><strong>Telefoon</strong><span>+5999-5622910</span></div>
+      <div class="detail"><strong>Locatie</strong><span>Op afspraak</span></div>
+    </div>
+    <form>
+      <div>
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" name="naam" required>
+      </div>
+      <div>
+        <label for="email">E-mailadres</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="dienst">Waar heb je interesse in?</label>
+        <select id="dienst" name="dienst">
+          <option>Hypnotherapie / regressietherapie</option>
+          <option>Stille Handen</option>
+          <option>Massage</option>
+          <option>Reiki</option>
+          <option>Acupressuur</option>
+          <option>Triggerpointtherapie</option>
+          <option>Engelenkaarten &amp; tarot</option>
+          <option>Anders / weet ik nog niet</option>
+        </select>
+      </div>
+      <div>
+        <label for="bericht">Bericht</label>
+        <textarea id="bericht" name="bericht" placeholder="Vertel kort waar je hulp bij zoekt of welk moment je voorkeur heeft."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="justify-self:start;">Versturen</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Praktijk Stille Handen — hypnotherapie, massage &amp; energetisch werk
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
